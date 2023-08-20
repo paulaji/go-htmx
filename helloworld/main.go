@@ -9,13 +9,25 @@ import (
 	"net/http"
 )
 
+// define a struct
+type Movie struct {
+	Title string
+	Actress string
+}
+
 func main(){
 	fmt.Println("Namaskaaram!")
 
 	// defining the h1 function, handler 1 (h1) for when we are at the home route
 	h1 := func(w http.ResponseWriter, r *http.Request) {
 		tmpl := template.Must(template.ParseFiles("index.html"))
-		tmpl.Execute(w, nil) // the second arguement is nil, which means we are not passing any value into the html page, same as django
+		movies := map[string][]Movie{
+			"Movies": {
+				{Title: "Kantaara", Actress: "Saptami Gowda"},
+				{Title: "Knock Knock", Actress: "Ana D Armas"},
+			},
+		}
+		tmpl.Execute(w, movies) // the second arguement is nil, which means we are not passing any value into the html page, same as django
 	}
 
 	// now define which handler to use in a particular route

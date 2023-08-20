@@ -6,6 +6,10 @@
     <title>Go x htmx</title>
   </head>
   <body>
-    <h1>Namaskaaram!</h1>
+    <h1>Movie Actress List</h1>
+
+    {{range .Movies}}
+    <p>{{.Title}}: <strong>{{.Actress}}</strong></p>
+    {{end}}
   </body>
 </html>
