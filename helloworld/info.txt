@@ -1,3 +1,5 @@
 installed go from the internet :)
 
 go run main.go // go to the dir and type this command to run 
+
+:= // if we dont explicitly declare variable types, we use := 
